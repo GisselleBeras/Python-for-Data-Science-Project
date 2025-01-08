@@ -17,7 +17,7 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 def make_graph(stock_data, revenue_data, stock):
-    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, subplot_titles=("Historical Share Price", "Historical Revenue"), vertical_spacing = .1)
+    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, subplot_titles=("Historical Share Price", "Historical Revenue"), vertical_spacing = .3)
     stock_data_specific = stock_data[stock_data.Date <= '2021-06-14']
     revenue_data_specific = revenue_data[revenue_data.Date <= '2021-04-30']
     fig.add_trace(go.Scatter(x=pd.to_datetime(stock_data_specific.Date, infer_datetime_format=True), y=stock_data_specific.Close.astype("float"), name="Share Price"), row=1, col=1)
